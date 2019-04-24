@@ -30,4 +30,4 @@ Pin `+5VSB` provides +5V as long as is the PSU connected to power outlet. It sho
 
 Controlling PSU is then achieved with trivial circuit shown below. You can use basically anything you find in your drawer. Current flowing through the control PIN is about 0.4mA on my PSU. Pin marked `CONTROL` on the schematics is connected to `FIXME` on the RPi.
 
-![psu control](img/psu.svg)
+![psu control](img/psu.png)
