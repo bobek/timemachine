@@ -33,3 +33,11 @@ Pin `+5VSB` provides +5V as long as is the PSU connected to power outlet. It sho
 Controlling PSU is then achieved with trivial circuit shown below. You can use basically anything you find in your drawer. Current flowing through the control PIN is about 0.4mA on my PSU. Pin marked `CONTROL` on the schematics is connected to `GPIO17` (physical pin 11) on the RPi.
 
 ![psu control](img/psu.png)
+
+### Vacuum Florescent Display (VFD)
+
+I love these things. I have used [M0220SD‐202SDAR1](https://www.newhavendisplay.com/m0220sd202sdar1-p-812.html) from Newhaven Display for this project. It has 2 lines, every with 20 characters. Fetch a copy of [product specification](http://www.newhavendisplay.com/specs/M0220SD-202SDAR1.pdf) for yourself as you will need to desolder jumper `J4` and short `J3` and `J5` to convert display from parallel Motorola to serial interface. 
+
+![VFD wiring to RPi3](img/vfd.png)
+
+Resistor value is again quite arbitrary. We are interfacing 4-wire SPI device (RPi3) with 3-wire SPI device (display). `SL/SO` on the display is bi-drectional, while directions are separated on the RPi3 side (`MOSI` is output, `MISO` is input). Resistor servers as a current protection/limiter in case of error state, where the RPi and display would be both outputting to the same pin with different values.
