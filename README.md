@@ -17,7 +17,9 @@ As it is expected to be run as automatically as possible, we leverage autologin 
 /home/pi/timemachine/wrapper.sh
 ```
 
-## Electonics
+## Electronics
+
+Check excellent [pinout.xyz](https://pinout.xyz/) for mapping of RPi physical pins to BCM (Broadcom GPIO).
 
 ### Power supply
 
