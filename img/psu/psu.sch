@@ -1,0 +1,92 @@
+EESchema Schematic File Version 4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_BJT:2N3904 Q1
+U 1 1 5CC0A8BE
+P 5350 3100
+F 0 "Q1" H 5540 3146 50  0000 L CNN
+F 1 "2N3904" H 5540 3055 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 5550 3025 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 5350 3100 50  0001 L CNN
+	1    5350 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5CC0AE51
+P 4950 3100
+F 0 "R1" V 4743 3100 50  0000 C CNN
+F 1 "500R" V 4834 3100 50  0000 C CNN
+F 2 "" V 4880 3100 50  0001 C CNN
+F 3 "~" H 4950 3100 50  0001 C CNN
+	1    4950 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5CC0B277
+P 5450 2700
+F 0 "R2" H 5520 2746 50  0000 L CNN
+F 1 "500R" H 5520 2655 50  0000 L CNN
+F 2 "" V 5380 2700 50  0001 C CNN
+F 3 "~" H 5450 2700 50  0001 C CNN
+	1    5450 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3100 5150 3100
+Wire Wire Line
+	5450 2850 5450 2900
+$Comp
+L power:VCOM #PWR01
+U 1 1 5CC0C380
+P 5450 3450
+F 0 "#PWR01" H 5450 3300 50  0001 C CNN
+F 1 "VCOM" V 5467 3578 50  0000 L CNN
+F 2 "" H 5450 3450 50  0001 C CNN
+F 3 "" H 5450 3450 50  0001 C CNN
+	1    5450 3450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5450 3300 5450 3450
+$Comp
+L Connector_Generic:Conn_01x01 J2
+U 1 1 5CC0D3EE
+P 5650 2450
+F 0 "J2" H 5730 2492 50  0000 L CNN
+F 1 "PS_ON#" H 5730 2401 50  0000 L CNN
+F 2 "" H 5650 2450 50  0001 C CNN
+F 3 "~" H 5650 2450 50  0001 C CNN
+	1    5650 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J1
+U 1 1 5CC0DA3B
+P 4550 3100
+F 0 "J1" H 4468 2875 50  0000 C CNN
+F 1 "CONTROL" H 4468 2966 50  0000 C CNN
+F 2 "" H 4550 3100 50  0001 C CNN
+F 3 "~" H 4550 3100 50  0001 C CNN
+	1    4550 3100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4750 3100 4800 3100
+Wire Wire Line
+	5450 2450 5450 2550
+$EndSCHEMATC
