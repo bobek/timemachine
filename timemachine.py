@@ -1,5 +1,6 @@
 import outputters
 import inputters
+import psucontrol
 import time
 import yaml
 import sys, os
@@ -41,6 +42,9 @@ if len(sys.argv) == 2 and sys.argv[1] == 'console':
 display = outputters.get_outputter(console)
 inputter = inputters.Inputter(display)
 time_destinations = yaml.load(open('destinations.yml', 'r'))
+psu = psucontrol.PSU(17) # pin 11 on the connector
+
+psu.turn_on(); time.sleep(0.5)
 
 if not console:
     boot()
@@ -59,3 +63,4 @@ if not console:
 display.cls(); display.line(0, "Time machine is"); display.line(1, "shutting down ..."); time.sleep(1)
 time.sleep(2)
 display.visibility(False)
+del psu

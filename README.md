@@ -17,7 +17,9 @@ As it is expected to be run as automatically as possible, we leverage autologin 
 /home/pi/timemachine/wrapper.sh
 ```
 
-## Power supply
+## Electonics
+
+### Power supply
 
 ATX power supply from old computer is an ideal solution (`SB` stands for standby). Check [wikipedia](https://en.wikipedia.org/wiki/ATX) for the actual pinouts. But interesting ones are
 
@@ -28,6 +30,6 @@ ATX power supply from old computer is an ideal solution (`SB` stands for standby
 
 Pin `+5VSB` provides +5V as long as is the PSU connected to power outlet. It should not be loaded with more then 2A, but that is still plenty for powering up Raspberry PI. Shorting `PS_ON#` to `COM` will turn the PSU on (some really old ones needed load on +5V rail, but that is not typically needed).
 
-Controlling PSU is then achieved with trivial circuit shown below. You can use basically anything you find in your drawer. Current flowing through the control PIN is about 0.4mA on my PSU. Pin marked `CONTROL` on the schematics is connected to `FIXME` on the RPi.
+Controlling PSU is then achieved with trivial circuit shown below. You can use basically anything you find in your drawer. Current flowing through the control PIN is about 0.4mA on my PSU. Pin marked `CONTROL` on the schematics is connected to `GPIO17` (physical pin 11) on the RPi.
 
 ![psu control](img/psu.png)
