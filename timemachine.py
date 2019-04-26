@@ -40,7 +40,7 @@ if len(sys.argv) == 2 and sys.argv[1] == 'console':
     console = True
 
 button = psucontrol.PushButton(27)
-button.wait_for_press()
+button.wait_for_push()
 del button
 
 psu = psucontrol.PSU(17) # pin 11 on the connector

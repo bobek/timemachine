@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 
 
 class PSU:
@@ -35,5 +36,5 @@ class PushButton:
 
     def wait_for_push(self, sleep=0.5):
         while True:
-            if button.is_pushed(): break
+            if self.is_pushed(): break
             time.sleep(sleep)
