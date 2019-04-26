@@ -8,9 +8,11 @@ fi
 BASEDIR=$(dirname "$0")
 cd $BASEDIR
 
-# Turning HDMI off and on to get rid of any boot artifacts
-tvservice -o
-tvservice --explicit="DMT 35 HDMI"
+while [[ true ]] ; do
+  tvservice -o
+  python3 timemachine.py
+  sleep 1
+done
 
-python3 timemachine.py
+#tvservice --explicit="DMT 35 HDMI"
 #omxplayer -o hdmi -s /home/pi/showmax_logo_animation.mkv

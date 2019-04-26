@@ -39,12 +39,16 @@ console = False
 if len(sys.argv) == 2 and sys.argv[1] == 'console':
     console = True
 
+button = psucontrol.PushButton(27)
+button.wait_for_press()
+del button
+
+psu = psucontrol.PSU(17) # pin 11 on the connector
+psu.turn_on(); time.sleep(0.5)
+
 display = outputters.get_outputter(console)
 inputter = inputters.Inputter(display)
 time_destinations = yaml.load(open('destinations.yml', 'r'))
-psu = psucontrol.PSU(17) # pin 11 on the connector
-
-psu.turn_on(); time.sleep(0.5)
 
 if not console:
     boot()
