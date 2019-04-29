@@ -43,3 +43,10 @@ I love these things. I have used [M0220SD‐202SDAR1](https://www.newhavendispla
 ![VFD wiring to RPi3](img/vfd.png)
 
 Resistor value is again quite arbitrary. We are interfacing 4-wire SPI device (RPi3) with 3-wire SPI device (display). `SL/SO` on the display is bi-drectional, while directions are separated on the RPi3 side (`MOSI` is output, `MISO` is input). Resistor servers as a current protection/limiter in case of error state, where the RPi and display would be both outputting to the same pin with different values.
+
+## Accessories / Props
+
+To make the whole thing more funky, couple of 3D printed props have been used:
+
+  - Start switch got hidden in [Industrial Wargaming Dome remix](https://www.thingiverse.com/thing:1561986)
+  - [Flange Frame for VFD)(https://www.tinkercad.com/things/hrAWwvNFbeI-flange-frame) (based on [Flange gimmick d25.4mm](https://www.tinkercad.com/things/hRPuc958smU-flange-gimmick-d254mm))
