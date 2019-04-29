@@ -3,7 +3,9 @@ venv
 __pycache__
 *.pyc
 
+# Installation / deployment specific stuff
 video
+deploy
 
 # For PCBs designed using KiCad: http://www.kicad-pcb.org/
 # Format documentation: http://kicad-pcb.org/help/file-formats/
