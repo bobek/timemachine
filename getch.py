@@ -15,11 +15,18 @@ class _GetchUnix:
 
     def __call__(self):
         import sys, tty, termios
+        from select import select
+
         fd = sys.stdin.fileno()
         old_settings = termios.tcgetattr(fd)
         try:
             tty.setraw(sys.stdin.fileno())
-            ch = sys.stdin.read(1)
+
+            rlist, _, _ = select([sys.stdin], [], [], 10)
+            if rlist:
+                ch = sys.stdin.read(1)
+            else:
+                ch = None
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch

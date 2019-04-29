@@ -11,6 +11,7 @@ class Inputter:
         string = ''
         while True:
             ch = getch()
+            if ch == None: break
             if ch == '\r': break
             if ch == '\x7f':
                 #Backspace
