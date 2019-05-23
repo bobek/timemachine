@@ -2,6 +2,8 @@
 
 This repo contains code for **Time Machine**. It is intended as a glue for a kids summer game. The central idea of the game is time travel. So kids will be going through different eras of history of mankind (and beyond). They will collect "time codes" by solving puzzles and other participating in other games. When they punch in the correct time code, time machine will activate and transfer them to the particular era. Transfer is done via playing a video, which introduces them into that era (e.g. info about customs, arts, typical design etc.). 
 
+[![Time Machine demonstration](http://img.youtube.com/vi/R8P0Sa0llYg/0.jpg)](http://www.youtube.com/watch?v=R8P0Sa0llYg "Time Machine demonstration")
+
 It has been designed and tested on Raspberry Pi3 running Raspbian.
 
 ## Getting Raspberry Pi ready
