@@ -52,3 +52,8 @@ To make the whole thing more funky, couple of 3D printed props have been used:
 
   - Start switch got hidden in [Industrial Wargaming Dome remix](https://www.thingiverse.com/thing:1561986)
   - [Flange Frame for VFD)(https://www.tinkercad.com/things/hrAWwvNFbeI-flange-frame) (based on [Flange gimmick d25.4mm](https://www.tinkercad.com/things/hRPuc958smU-flange-gimmick-d254mm))
+
+Source of royalty free videos (for splashes for example):
+
+  - https://pixabay.com
+  - https://www.videvo.net
