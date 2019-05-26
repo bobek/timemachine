@@ -23,14 +23,18 @@ def ask_for_key(prompt='Casovy kod?'):
 
 def get_destination():
     dst = None
+    retries = 5
 
     while dst is None:
         key = ask_for_key()
         try:
             dst = time_destinations[key]
         except KeyError:
+            retries -= 1
             display.line(0, 'Spatny kod!')
             time.sleep(2)
+            if retries <= 0:
+                return None
 
     return(dst)
 
@@ -46,6 +50,8 @@ del button
 psu = psucontrol.PSU(17) # pin 11 on the connector
 psu.turn_on(); time.sleep(0.5)
 
+os.system('sudo python NotLinuxAjazzAK33RGB/ajazz.py --accept -d /dev/hidraw1 -l 5')
+
 display = outputters.get_outputter(console)
 inputter = inputters.Inputter(display)
 time_destinations = yaml.load(open('destinations.yml', 'r'))
@@ -57,12 +63,16 @@ if console:
     print(repr(time_destinations))
 
 destination = get_destination()
-display.cls()
-display.line(0, destination['name'])
-display.line(1, '   ... jedeme ...')
 
-if not console:
-    os.system('omxplayer -o hdmi video/news.mkv')
+if destination is not None:
+    display.cls()
+    display.line(0, destination['name'])
+    display.line(1, '   ... jedeme ...')
+
+    if not console:
+        os.system('tvservice --preferred')
+        os.system('omxplayer -o hdmi video/splash/Earth - 1175.mp4')
+        os.system('tvservice --off')
 
 display.cls(); display.line(0, "Time machine is"); display.line(1, "shutting down ..."); time.sleep(1)
 time.sleep(2)
