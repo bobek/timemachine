@@ -69,7 +69,7 @@ del button
 psu = psucontrol.PSU(17) # pin 11 on the connector
 psu.turn_on(); time.sleep(0.5)
 
-os.system('sudo python NotLinuxAjazzAK33RGB/ajazz.py --accept -d /dev/hidraw1 -l 5')
+os.system('sudo python NotLinuxAjazzAK33RGB/ajazz.py --accept -d /dev/hidraw1 -l 5 -m {mode}'.format(mode=random.choice(list(range(1,6)) + list(range(10,18)))))
 
 display = outputters.get_outputter(console)
 inputter = inputters.Inputter(display)
