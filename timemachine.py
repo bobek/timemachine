@@ -3,7 +3,7 @@ import inputters
 import psucontrol
 import time
 import yaml
-import sys, os
+import os, random, shlex, sys
 
 
 def boot():
@@ -20,6 +20,22 @@ def ask_for_key(prompt='Casovy kod?'):
     display.goto(1,0)
     return(inputter.input_by_char())
 
+def pairs(lst):
+    if not lst:
+        return []
+
+    if len(lst) <= 2:
+        return [lst]
+
+    return [lst[0:2]] + pairs(lst[2:])
+
+def display_message(message=[]):
+    for p in pairs(message):
+        display.cls();
+        display.line(0, p[0]);
+        if len(p) > 1:
+            display.line(1, p[1])
+        time.sleep(4)
 
 def get_destination():
     dst = None
@@ -38,6 +54,9 @@ def get_destination():
 
     return(dst)
 
+def random_file(root=''):
+    file = random.choice(os.listdir(root))
+    return os.path.join(root, file)
 
 console = False
 if len(sys.argv) == 2 and sys.argv[1] == 'console':
@@ -70,9 +89,14 @@ if destination is not None:
     display.line(1, '   ... jedeme ...')
 
     if not console:
-        os.system('tvservice --preferred')
-        os.system('omxplayer -o hdmi video/splash/Earth - 1175.mp4')
+        #os.system('tvservice --preferred')
+        os.system('tvservice --explicit="CEA 4 HDMI"')
+        os.system('omxplayer -o hdmi {video}'.format(video=shlex.quote(random_file('video/splash'))))
+        os.system('omxplayer -o hdmi {video}'.format(video=shlex.quote(destination['video'])))
         os.system('tvservice --off')
+
+    if 'message' in destination:
+        display_message(destination['message'])
 
 display.cls(); display.line(0, "Time machine is"); display.line(1, "shutting down ..."); time.sleep(1)
 time.sleep(2)
