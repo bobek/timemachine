@@ -11,6 +11,7 @@ cd $BASEDIR
 while [[ true ]] ; do
   tvservice -o
   sudo python NotLinuxAjazzAK33RGB/ajazz.py --accept -d /dev/hidraw1 -l 0
+  sleep 1
   python3 timemachine.py
   sudo python NotLinuxAjazzAK33RGB/ajazz.py --accept -d /dev/hidraw1 -l 0
   sleep 1
