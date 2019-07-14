@@ -73,7 +73,7 @@ os.system('sudo python NotLinuxAjazzAK33RGB/ajazz.py --accept -d /dev/hidraw1 -l
 
 display = outputters.get_outputter(console)
 inputter = inputters.Inputter(display)
-time_destinations = yaml.load(open('destinations.yml', 'r'), Loader=yaml.FullLoader)
+time_destinations = yaml.load(open('destinations.yml', 'r'))
 
 if not console:
     boot()
